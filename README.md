@@ -9,7 +9,7 @@ The figure below shows the 3D-printed integrating-sphere setup.  Panel A shows a
 <br>
 
 ## Uniformity/Noise Evaluation
-The smartphone camera captures the diffuse reflectance standard as a RAW file.  The uniformity.ipynb file in this repository then plots the digital number (z) as a function of pixel location (x and y) and produces the plots shown below. The first set of images (labeled A and B) is of a single image. From here we see that there are three types of non-uniformities: (a) a gross curvature pointed to the limited lighting uniformity (Panel A), (b) a high frequency feature associated with camera noise (variable) and target texture (fixed) (also Panel A), and (c) electronic banding associated with both the LED pulse-width-modulation and the rolling shutter speed (Panel B).  
+The smartphone camera captures the diffuse reflectance standard as a RAW file.  The uniformity.ipynb file in this repository then plots the digital number (z-axis) as a function of pixel location (x and y axis) and produces the plots shown below. The first set of images (labeled A and B) is of a single image. From here we see that there are three types of non-uniformities: (a) a gross curvature pointed to the limited lighting uniformity (Panel A), (b) a high frequency feature associated with camera noise (variable) and target texture (fixed) (also Panel A), and (c) electronic banding associated with both the LED pulse-width-modulation and the rolling shutter speed (Panel B).  
 <br><br>
 <p align="center" width="100%">
     <img width="60%" src="https://github.com/pHastCam/IS-Uniformity-Test/blob/main/uniformity.png"> 
