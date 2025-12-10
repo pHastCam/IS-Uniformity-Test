@@ -8,6 +8,10 @@ This repository supports a University of Washington project to develop a low-cos
 <br>
 
 ## Uniformity/Noise Evaluation
-
+<br><br>
+<p align="center" width="100%">
+    <img width="60%" src="https://github.com/pHastCam/IS-Uniformity-Test/blob/main/uniformity.png"> 
+</p>
+<br>
 
 ## High Frequency Noise - Teasing out Deterministic vs. Stochastic Noise
