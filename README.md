@@ -51,5 +51,6 @@ For the case of the diffuse reflectance standard, you can pull the standard devi
 <p align="center" width="100%">
     <img src="https://latex.codecogs.com/svg.latex?\normalsize\sigma_{5,\mathrm{fixed}}^{2}=\sigma_{5,\mathrm{actual}}^{2}-\sigma_{5,\mathrm{camera}}^{2}=52.59" alt="sigma5 actual squared"/> 
 </p> 
+<br>
 So the fraction of fixed high-frequency artifacts attributed to surface texture (diffuse reflectance standard) and sensor-fixed patterns (camera) is 52.59 / 70.06 = 75.1% while the fraction attributed to camera variable noise is 17.47 / 70.06 = 24.9%.
 
