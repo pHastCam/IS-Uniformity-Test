@@ -31,6 +31,7 @@ The variance of the high-frequency artifacts may be modeled as:
     <img src="https://latex.codecogs.com/svg.latex?\normalsize\;\sigma_{\mathrm{HF}}^{2}(N)=\sigma_{\mathrm{texture}}^{2}+\frac{\sigma_{\mathrm{noise}}^{2}}{N}" alt="HF variance model"/>
 </p>
 <br>
+We can estimate the fraction of these high-frequency artifacts associated with each component by assuming that all high-frequency data from the first image (N=1) are due to camera noise, and then projecting how the standard deviation of the noise behaves as we increase N from 1 to 5.  We then compare these modeled results to the standard deviation of actual data as we stack images from 1 to 5.  If the two curves are identical, then we can attribute the artifacts entirely to stochastic noise from the camera.  If, on the other hand, we see a discrepancy between the two curves, the difference may be attributed to fixed features, such as sensor-fixed patterning and surface texture. The plot below shows a significant discrepancy between these two conditions.
 <br><br>
 <p align="center" width="100%">
     <img width="60%" src="https://github.com/pHastCam/IS-Uniformity-Test/blob/main/HF_Noise_Eval.png"> 
