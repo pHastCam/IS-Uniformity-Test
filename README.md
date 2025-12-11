@@ -23,6 +23,12 @@ We can reduce both the banding and camera-generated high-frequency noise by stac
 <br>
 
 ## High Frequency Noise - Teasing out Deterministic vs. Stochastic Noise
+
+<br><br>
+<p align="center">
+  <img src="https://latex.codecogs.com/svg.latex?\normalsize%20A_{\mathrm{meas}}(\lambda)=A_{\mathrm{H^+}}(\lambda)+A_{\mathrm{OH^-}}(\lambda)" alt="Absorption Equation"/>
+</p>
+<br>
 <br><br>
 <p align="center" width="100%">
     <img width="60%" src="https://github.com/pHastCam/IS-Uniformity-Test/blob/main/HF_Noise_Eval.png"> 
