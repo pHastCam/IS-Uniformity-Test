@@ -47,4 +47,8 @@ For the case of the diffuse reflectance standard, you can pull the standard devi
 <p align="center" width="100%">
     <img src="https://latex.codecogs.com/svg.latex?\normalsize\sigma_{5,\mathrm{camera}}^{2}=4.18^{2}=17.47" alt="sigma5 actual squared"/> 
 </p> 
+<br>
+<p align="center" width="100%">
+    <img src="https://latex.codecogs.com/svg.latex?\normalsize\sigma_{5,\mathrm{fixed}}^{2}=\sigma_{5,\mathrm{actual}}^{2}-\sigma_{5,\mathrm{camera}}^{2}=52.59" alt="sigma5 actual squared"/> 
+</p> 
 
