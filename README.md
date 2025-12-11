@@ -37,3 +37,10 @@ We can estimate the fraction of these high-frequency artifacts associated with e
     <img width="60%" src="https://github.com/pHastCam/IS-Uniformity-Test/blob/main/HF_Noise_Eval.png"> 
 </p>
 <br>
+For the case of the diffuse reflectance standard, you can pull the standard deviations for each condition from the graph:
+
+<br><br>
+<p align="center" width="100%">
+    <img src="https://latex.codecogs.com/svg.latex?\normalsize\sigma_{5,\mathrm{actual}}^{2}=8.37^{2}=70.06" alt="sigma5 actual squared"/> 
+</p> Actual Images
+<br>
