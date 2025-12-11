@@ -26,7 +26,7 @@ We can reduce both the banding and camera-generated high-frequency noise by stac
 
 <br><br>
 <p align="center">
-  <img src="https://latex.codecogs.com/svg.latex?\normalsize%20A_{\mathrm{meas}}(\lambda)=A_{\mathrm{H^+}}(\lambda)+A_{\mathrm{OH^-}}(\lambda)" alt="Absorption Equation"/>
+    <img src="https://latex.codecogs.com/svg.latex?\normalsize\;\sigma_{\mathrm{HF}}^{2}(N)=\sigma_{\mathrm{texture}}^{2}+\frac{\sigma_{\mathrm{noise}}^{2}}{N}" alt="HF variance model"/>
 </p>
 <br>
 <br><br>
