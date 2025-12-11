@@ -37,7 +37,7 @@ We can estimate the fraction of these high-frequency artifacts associated with e
     <img width="60%" src="https://github.com/pHastCam/IS-Uniformity-Test/blob/main/HF_Noise_Eval.png"> 
 </p>
 <br>
-For the case of the diffuse reflectance standard, you can pull the standard deviations for each condition from the graph:
+For the case of the diffuse reflectance standard, you can pull the standard deviations for each condition from the graph and calculate the variance:
 
 <br><br>
 <p align="center" width="100%">
