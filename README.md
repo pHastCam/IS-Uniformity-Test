@@ -24,6 +24,7 @@ We can reduce both the banding and camera-generated high-frequency noise by stac
 
 ## High Frequency Noise - Teasing out Deterministic vs. Stochastic Noise
 The high-frequency artifacts have two major components: one from surface texture, the other from camera noise. The surface texture is fixed or deterministic, hence stacking multiple images will not reduce this component.  The camera noise has two subcomponents: one from shot noise and the other from readout noise.  Although these two subcomponents stem from different events, both are variable and stochastic, and may be reduced by stacking by the inverse of the square root of the sample size (<img src="https://latex.codecogs.com/svg.latex?\normalsize\sqrt{N}" alt="sqrt(N)"/>).
+The variance of the high-frequency artifacts may be modeled as:
 <br><br>
 <p align="center">
     <img src="https://latex.codecogs.com/svg.latex?\normalsize\;\sigma_{\mathrm{HF}}^{2}(N)=\sigma_{\mathrm{texture}}^{2}+\frac{\sigma_{\mathrm{noise}}^{2}}{N}" alt="HF variance model"/>
