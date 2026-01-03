@@ -11,9 +11,11 @@ The figure below shows the 3D-printed integrating-sphere setup.  Panel A shows a
 ## Uniformity/Noise Evaluation
 The smartphone camera captures the diffuse reflectance standard as a RAW image file.  The 'Curve Analysis.ipynb' in this repository then plots the digital number (z-axis) as a function of pixel location (x and y axis) and produces the plots shown below. The first set of graphs (labeled A and B) is of a single image. From here we see that there are three types of non-uniformities: (a) a gross curvature pointed to the limited lighting uniformity (Panel A), (b) a high frequency feature associated with camera noise (variable) and target texture (fixed) (also Panel A), and (c) electronic banding associated with both the LED pulse-width-modulation and the rolling shutter or readout speed (Panel B) in accordance with the following equation:
 
-\[
-\text{Error} = f(\text{curvature},\ \text{banding},\ \text{HF noise})
-\]
+<p align="center">
+  <img src="https://latex.codecogs.com/svg.latex?%5Cnormalsize%20Error%3Df(curvature%2Cbanding%2CHF%20noise)"
+       alt="Error = f(curvature, banding, HF noise)">
+</p>
+
 <br><br>
 <p align="center" width="100%">
     <img width="60%" src="https://github.com/pHastCam/IS-Uniformity-Test/blob/main/uniformity.png"> 
