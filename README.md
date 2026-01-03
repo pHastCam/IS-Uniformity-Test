@@ -22,13 +22,15 @@ We can reduce both the banding and camera-generated high-frequency noise by stac
 </p>
 <br>
 From here, we will quantify the error associated with curvature, banding, and high-frequency noise.
+
+
+## Curvature
+Quantifying curvature is best explained using a 1D profile of the stack images.  We will then map this approach over to the 2D data. The graphs below show (a) a mask used on a 400x400 pixel ROI (same ROI used to generate the flat-field graphs above) and (b) the 1-D profile of the stacked data.  The blue line shows the original data, with clear curvature and high-frequency noise.  The orange line represents the low-spatial-frequency mean illumination profile, capturing smooth curvature while excluding the high-frequency noise.  The light blue bars on the graph align with the five smaller squares shown in the mask.  Curvature is calculated within five smaller squares mapped onto the 1-D profile.
 <br><br>
 <p align="center" width="100%">
-    <img width="60%" src="https://github.com/pHastCam/IS-Uniformity-Test/blob/main/curvature_1d_demo.png"> 
+    <img width="60%" src="https://github.com/pHastCam/IS-Uniformity-Test/blob/main/Maskand1DCurve.png"> 
 </p>
 <br>
-## Curvature
-Quantifying curvature is best explained using a 1D profile of the stack images.  We will then map this approach over to the 2D data.
 ## High Frequency Noise - Teasing out Deterministic vs. Stochastic Noise
 The high-frequency artifacts have two major components: one from surface texture, the other from camera noise. The surface texture is fixed or deterministic, hence stacking multiple images will not reduce this component.  The camera noise has two subcomponents: one from shot noise and the other from readout noise.  Although these two subcomponents stem from different events, both are variable and stochastic, and may be reduced by stacking by the inverse of the square root of the sample size (<img src="https://latex.codecogs.com/svg.latex?\normalsize\sqrt{N}" alt="sqrt(N)"/>).
 
