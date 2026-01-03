@@ -64,6 +64,13 @@ Curvature.py is a function that maps this analysis over to a 2-D flat-field imag
 <br>
 
 ## Banding
+As shown in the flat-field graph above for a single frame, banding is directional. To calculate the banding contribution to error, we first flatten the image (remove the curvature using the analysis info from Curvature.ipynb) and then generate an average column profile (not by row, but by column).  We will use two different methods to calculate banding error from this one-dimensional data set.   
+
+### Method 1
+<p align="center" width="100%">
+    <img width="80%" src="https://github.com/pHastCam/IS-Uniformity-Test/blob/main/bandingbymovingwindow.png"> 
+</p>
+<br>
 
 
 ## High Frequency Noise - Teasing out Deterministic vs. Stochastic Noise
