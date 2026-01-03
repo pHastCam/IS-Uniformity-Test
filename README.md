@@ -45,6 +45,59 @@ low-spatial-frequency 1-D DN profile.
     <img width="60%" src="https://github.com/pHastCam/IS-Uniformity-Test/blob/main/Maskand1DCurve.png"> 
 </p>
 <br>
+
+<table>
+  <thead>
+    <tr>
+      <th>Window</th>
+      <th>Centroid (cx, cy)</th>
+      <th>Patch top-left (x0, y0)</th>
+      <th>Curvature span (p95–p5)</th>
+      <th>% of mean</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>center</td>
+      <td>(200, 200)</td>
+      <td>(185, 185)</td>
+      <td>2.33 DN</td>
+      <td>0.74%</td>
+    </tr>
+    <tr>
+      <td>right_lower</td>
+      <td>(300, 100)</td>
+      <td>(285, 85)</td>
+      <td>4.32 DN</td>
+      <td>1.38%</td>
+    </tr>
+    <tr>
+      <td>right_upper</td>
+      <td>(300, 300)</td>
+      <td>(285, 285)</td>
+      <td>4.26 DN</td>
+      <td>1.36%</td>
+    </tr>
+    <tr>
+      <td>left_lower</td>
+      <td>(100, 100)</td>
+      <td>(85, 85)</td>
+      <td>4.38 DN</td>
+      <td>1.39%</td>
+    </tr>
+    <tr>
+      <td>left_upper</td>
+      <td>(100, 300)</td>
+      <td>(85, 285)</td>
+      <td>3.30 DN</td>
+      <td>1.05%</td>
+    </tr>
+  </tbody>
+  <caption>
+    2D quadratic curvature metric on 30×30 windows (centroids inset by 100 px; curvature = p95–p5 of fitted surface).
+  </caption>
+</table>
+
 ## High Frequency Noise - Teasing out Deterministic vs. Stochastic Noise
 The high-frequency artifacts have two major components: one from surface texture, the other from camera noise. The surface texture is fixed or deterministic, hence stacking multiple images will not reduce this component.  The camera noise has two subcomponents: one from shot noise and the other from readout noise.  Although these two subcomponents stem from different events, both are variable and stochastic, and may be reduced by stacking by the inverse of the square root of the sample size (<img src="https://latex.codecogs.com/svg.latex?\normalsize\sqrt{N}" alt="sqrt(N)"/>).
 
