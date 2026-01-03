@@ -28,9 +28,10 @@ From here, we will quantify the error associated with curvature, banding, and hi
 Quantifying curvature is best explained using a 1D profile of the stack images.  We will then map this approach over to the 2D data. The graphs below show (a) a mask used on a 400x400 pixel ROI (same ROI used to generate the flat-field graphs above) and (b) the 1-D profile of the stacked data.  The blue line shows the original data, with clear curvature and high-frequency noise.  The orange line represents the low-spatial-frequency mean illumination profile, capturing smooth curvature while excluding the high-frequency noise.  The light blue bars on the graph align with the five smaller squares shown in the mask.  Curvature is determined within five smaller squares mapped onto the 1-D profile and is calculated as the robust DN range (5–95%) of the low-spatial-frequency mean profile over these ROI-sized windows in accordance with the equation below.
 
 <p align="center" width="100%">
-  <img src="https://latex.codecogs.com/svg.latex?\normalsize C_{W}=P_{95}\!\left(\bar{I}_{LF}(x)\right)-P_{5}\!\left(\bar{I}_{LF}(x)\right)"
-  alt="Curvature DN span"/>
+  <img src="https://latex.codecogs.com/svg.latex?%5Cnormalsize%20C_%7BW%7D%3DP_%7B95%7D%5Cleft(%5Cbar%7BI%7D_%7BLF%7D(x)%5Cright)-P_%7B5%7D%5Cleft(%5Cbar%7BI%7D_%7BLF%7D(x)%5Cright)"
+       alt="Curvature DN span"/>
 </p>
+
 
 
 
