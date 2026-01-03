@@ -18,7 +18,7 @@ The smartphone camera captures the diffuse reflectance standard as a RAW image f
 
 From here we see that there are three types of non-uniformities: (a) a gross curvature pointed to the limited lighting uniformity (Panel A), (b) a high frequency feature associated with camera noise (variable) and target texture (fixed) (also Panel A), and (c) electronic banding associated with both the LED pulse-width-modulation and the rolling shutter or readout speed (Panel B) in accordance with the following equation:
 
-<br><br>
+<br>
 <p align="center">
   <img src="https://latex.codecogs.com/svg.latex?%5Cnormalsize%20Error%3Df(curvature%2Cbanding%2CHF%20noise)"
        alt="Error = f(curvature, banding, HF noise)">
@@ -59,7 +59,7 @@ low-spatial-frequency 1-D DN profile.
 Curvature.py is a function that maps this analysis over to a 2-D flat-field image.  For the five small squares shown in the above mask, the calculated curvature values are presented in the table below. The curvature metric shows a consistent geometric dependence across the field of view: it is smallest in the central window (2.33 DN, 0.74% of mean) and larger in all four peripheral windows (≈3.3–4.4 DN, ≈1.05–1.39% of mean). This repeatable, smoothly varying spatial pattern is consistent with a low-spatial-frequency illumination/optical roll-off (a fixed bias field within a measurement session), rather than a stochastic term that would vary irregularly with location or average down with stacking.
 <br><br>
 <p align="center" width="100%">
-    <img width="60%" src="https://github.com/pHastCam/IS-Uniformity-Test/blob/main/table_curvature.png"> 
+    <img width="80%" src="https://github.com/pHastCam/IS-Uniformity-Test/blob/main/table_curvature.png"> 
 </p>
 <br>
 
