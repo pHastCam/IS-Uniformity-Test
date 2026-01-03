@@ -22,13 +22,91 @@ We can reduce both the banding and camera-generated high-frequency noise by stac
 </p>
 <br>
 From here, we will quantify the error associated with curvature, banding, and high-frequency noise.
-<br><br>
+
+
+## Curvature
+Quantifying curvature is best explained using a 1D profile of the stack images.  We will then map this approach over to the 2D data. The graphs below show (a) a mask used on a 400x400 pixel ROI (same ROI used to generate the flat-field graphs above) and (b) the 1-D profile of the stacked data.  The blue line shows the original data, with clear curvature and high-frequency noise.  The orange line represents the low-spatial-frequency mean illumination profile, capturing smooth curvature while excluding the high-frequency noise.  The light blue bars on the graph align with the five smaller squares shown in the mask.  Curvature is determined within five smaller squares mapped onto the 1-D profile and is calculated as the robust DN range (5–95%) of the low-spatial-frequency mean profile over these ROI-sized windows in accordance with the equation below.
+
 <p align="center" width="100%">
-    <img width="60%" src="https://github.com/pHastCam/IS-Uniformity-Test/blob/main/curvature_1d_demo.png"> 
+  <img src="https://latex.codecogs.com/svg.latex?%5Cnormalsize%20C_%7BW%7D%3DP_%7B95%7D%5Cleft(%5Cbar%7BI%7D_%7BLF%7D(x)%5Cright)-P_%7B5%7D%5Cleft(%5Cbar%7BI%7D_%7BLF%7D(x)%5Cright)"
+       alt="Curvature DN span"/>
 </p>
 <br>
-## Curvature
-Quantifying curvature is best explained using a 1D profile of the stack images.  We will then map this approach over to the 2D data.
+
+<p>
+Here, <b><i>C</i></b> denotes the error associated with curvature;
+<b><i>p</i></b><sub>5</sub> and <b><i>p</i></b><sub>95</sub> are the 5th and 95th DN percentiles
+computed over the analysis window; and <b><i>I(x)</i></b> is the smoothed,
+low-spatial-frequency 1-D DN profile.
+</p>
+
+<br>
+<p align="center" width="100%">
+    <img width="60%" src="https://github.com/pHastCam/IS-Uniformity-Test/blob/main/Maskand1DCurve.png"> 
+</p>
+<br>
+
+<table style="margin-left: auto; margin-right: auto;">
+  <thead>
+    <tr>
+      <th>Window</th>
+      <th>Centroid (cx, cy)</th>
+      <th>Patch top-left (x0, y0)</th>
+      <th>Curvature span (p95–p5)</th>
+      <th>% of mean</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>center</td>
+      <td>(200, 200)</td>
+      <td>(185, 185)</td>
+      <td>2.33 DN</td>
+      <td>0.74%</td>
+    </tr>
+    <tr>
+      <td>right_lower</td>
+      <td>(300, 100)</td>
+      <td>(285, 85)</td>
+      <td>4.32 DN</td>
+      <td>1.38%</td>
+    </tr>
+    <tr>
+      <td>right_upper</td>
+      <td>(300, 300)</td>
+      <td>(285, 285)</td>
+      <td>4.26 DN</td>
+      <td>1.36%</td>
+    </tr>
+    <tr>
+      <td>left_lower</td>
+      <td>(100, 100)</td>
+      <td>(85, 85)</td>
+      <td>4.38 DN</td>
+      <td>1.39%</td>
+    </tr>
+    <tr>
+      <td>left_upper</td>
+      <td>(100, 300)</td>
+      <td>(85, 285)</td>
+      <td>3.30 DN</td>
+      <td>1.05%</td>
+    </tr>
+  </tbody>
+  <caption>
+    2D quadratic curvature metric on 30×30 windows (centroids inset by 100 px; curvature = p95–p5 of fitted surface).
+  </caption>
+</table>
+
+
+| Window       | Centroid (cx, cy) | Patch (x0, y0) | Curvature span | % of mean |
+|--------------|------------------:|---------------:|---------------:|----------:|
+| center       | (200, 200)        | (185, 185)     | 2.33 DN        | 0.74%     |
+| right_lower  | (300, 100)        | (285, 85)      | 4.32 DN        | 1.38%     |
+| right_upper  | (300, 300)        | (285, 285)     | 4.26 DN        | 1.36%     |
+| left_lower   | (100, 100)        | (85, 85)       | 4.38 DN        | 1.39%     |
+| left_upper   | (100, 300)        | (85, 285)      | 3.30 DN        | 1.05%     |
+
 ## High Frequency Noise - Teasing out Deterministic vs. Stochastic Noise
 The high-frequency artifacts have two major components: one from surface texture, the other from camera noise. The surface texture is fixed or deterministic, hence stacking multiple images will not reduce this component.  The camera noise has two subcomponents: one from shot noise and the other from readout noise.  Although these two subcomponents stem from different events, both are variable and stochastic, and may be reduced by stacking by the inverse of the square root of the sample size (<img src="https://latex.codecogs.com/svg.latex?\normalsize\sqrt{N}" alt="sqrt(N)"/>).
 
