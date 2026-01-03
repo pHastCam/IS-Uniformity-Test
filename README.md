@@ -9,7 +9,11 @@ The figure below shows the 3D-printed integrating-sphere setup.  Panel A shows a
 <br>
 
 ## Uniformity/Noise Evaluation
-The smartphone camera captures the diffuse reflectance standard as a RAW image file.  The 'Curve Analysis.ipynb' in this repository then plots the digital number (z-axis) as a function of pixel location (x and y axis) and produces the plots shown below. The first set of graphs (labeled A and B) is of a single image. From here we see that there are three types of non-uniformities: (a) a gross curvature pointed to the limited lighting uniformity (Panel A), (b) a high frequency feature associated with camera noise (variable) and target texture (fixed) (also Panel A), and (c) electronic banding associated with both the LED pulse-width-modulation and the rolling shutter or readout speed (Panel B).  
+The smartphone camera captures the diffuse reflectance standard as a RAW image file.  The 'Curve Analysis.ipynb' in this repository then plots the digital number (z-axis) as a function of pixel location (x and y axis) and produces the plots shown below. The first set of graphs (labeled A and B) is of a single image. From here we see that there are three types of non-uniformities: (a) a gross curvature pointed to the limited lighting uniformity (Panel A), (b) a high frequency feature associated with camera noise (variable) and target texture (fixed) (also Panel A), and (c) electronic banding associated with both the LED pulse-width-modulation and the rolling shutter or readout speed (Panel B) in accordance with the following equation:
+
+\[
+\text{Error} = f(\text{curvature},\ \text{banding},\ \text{HF noise})
+\]
 <br><br>
 <p align="center" width="100%">
     <img width="60%" src="https://github.com/pHastCam/IS-Uniformity-Test/blob/main/uniformity.png"> 
@@ -46,7 +50,7 @@ low-spatial-frequency 1-D DN profile.
 </p>
 <br>
 Curvature.py is a function that maps this analysis over to a 2-D flat-field image.  For the five small squares shown in the above mask, the calculated curvature values are presented in the table below. The curvature metric shows a consistent geometric dependence across the field of view: it is smallest in the central window (2.33 DN, 0.74% of mean) and larger in all four peripheral windows (≈3.3–4.4 DN, ≈1.05–1.39% of mean). This repeatable, smoothly varying spatial pattern is consistent with a low-spatial-frequency illumination/optical roll-off (a fixed bias field within a measurement session), rather than a stochastic term that would vary irregularly with location or average down with stacking.
-<br>
+<br><br>
 <p align="center" width="100%">
     <img width="60%" src="https://github.com/pHastCam/IS-Uniformity-Test/blob/main/table_curvature.png"> 
 </p>
