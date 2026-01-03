@@ -31,7 +31,7 @@ Quantifying curvature is best explained using a 1D profile of the stack images. 
   <img src="https://latex.codecogs.com/svg.latex?%5Cnormalsize%20C_%7BW%7D%3DP_%7B95%7D%5Cleft(%5Cbar%7BI%7D_%7BLF%7D(x)%5Cright)-P_%7B5%7D%5Cleft(%5Cbar%7BI%7D_%7BLF%7D(x)%5Cright)"
        alt="Curvature DN span"/>
 </p>
-<br><br>
+<br>
 
 <p>
 Here, <b><i>C</i></b> denotes the error associated with curvature;
@@ -40,8 +40,7 @@ computed over the analysis window; and <b><i>I(x)</i></b> is the smoothed,
 low-spatial-frequency 1-D DN profile.
 </p>
 
-
-<br><br>
+<br>
 <p align="center" width="100%">
     <img width="60%" src="https://github.com/pHastCam/IS-Uniformity-Test/blob/main/Maskand1DCurve.png"> 
 </p>
