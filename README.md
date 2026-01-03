@@ -46,6 +46,11 @@ low-spatial-frequency 1-D DN profile.
 </p>
 <br>
 
+<br>
+<p align="center" width="100%">
+    <img width="60%" src="https://github.com/pHastCam/IS-Uniformity-Test/blob/main/table_curvature.png"> 
+</p>
+<br>
 <table style="margin-left: auto; margin-right: auto;">
   <thead>
     <tr>
