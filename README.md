@@ -9,7 +9,7 @@ The figure below shows the 3D-printed integrating-sphere setup.  Panel A shows a
 <br>
 
 ## Uniformity/Noise Evaluation
-The smartphone camera captures the diffuse reflectance standard as a RAW file.  The uniformity.ipynb file in this repository then plots the digital number (z-axis) as a function of pixel location (x and y axis) and produces the plots shown below. The first set of images (labeled A and B) is of a single image. From here we see that there are three types of non-uniformities: (a) a gross curvature pointed to the limited lighting uniformity (Panel A), (b) a high frequency feature associated with camera noise (variable) and target texture (fixed) (also Panel A), and (c) electronic banding associated with both the LED pulse-width-modulation and the rolling shutter or readout speed (Panel B).  
+The smartphone camera captures the diffuse reflectance standard as a RAW image file.  The 'Curve Analysis.ipynb' in this repository then plots the digital number (z-axis) as a function of pixel location (x and y axis) and produces the plots shown below. The first set of graphs (labeled A and B) is of a single image. From here we see that there are three types of non-uniformities: (a) a gross curvature pointed to the limited lighting uniformity (Panel A), (b) a high frequency feature associated with camera noise (variable) and target texture (fixed) (also Panel A), and (c) electronic banding associated with both the LED pulse-width-modulation and the rolling shutter or readout speed (Panel B).  
 <br><br>
 <p align="center" width="100%">
     <img width="60%" src="https://github.com/pHastCam/IS-Uniformity-Test/blob/main/uniformity.png"> 
@@ -21,8 +21,14 @@ We can reduce both the banding and camera-generated high-frequency noise by stac
     <img width="60%" src="https://github.com/pHastCam/IS-Uniformity-Test/blob/main/uniformity_stack.png"> 
 </p>
 <br>
-From here, uniformity.ipynb quantifies all three non-uniformity sources.
-
+From here, we will quantify the error associated with curvature, banding, and high-frequency noise.
+<br><br>
+<p align="center" width="100%">
+    <img width="60%" src="https://github.com/pHastCam/IS-Uniformity-Test/blob/main/curvature_1d_demo.png"> 
+</p>
+<br>
+## Curvature
+Quantifying curvature is best explained using a 1D profile of the stack images.  We will then map this approach over to the 2D data.
 ## High Frequency Noise - Teasing out Deterministic vs. Stochastic Noise
 The high-frequency artifacts have two major components: one from surface texture, the other from camera noise. The surface texture is fixed or deterministic, hence stacking multiple images will not reduce this component.  The camera noise has two subcomponents: one from shot noise and the other from readout noise.  Although these two subcomponents stem from different events, both are variable and stochastic, and may be reduced by stacking by the inverse of the square root of the sample size (<img src="https://latex.codecogs.com/svg.latex?\normalsize\sqrt{N}" alt="sqrt(N)"/>).
 
