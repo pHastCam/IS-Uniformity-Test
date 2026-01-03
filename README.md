@@ -9,11 +9,22 @@ The figure below shows the 3D-printed integrating-sphere setup.  Panel A shows a
 <br>
 
 ## Uniformity/Noise Evaluation
-The smartphone camera captures the diffuse reflectance standard as a RAW image file.  The 'Curve Analysis.ipynb' in this repository then plots the digital number (z-axis) as a function of pixel location (x and y axis) and produces the plots shown below. The first set of graphs (labeled A and B) is of a single image. From here we see that there are three types of non-uniformities: (a) a gross curvature pointed to the limited lighting uniformity (Panel A), (b) a high frequency feature associated with camera noise (variable) and target texture (fixed) (also Panel A), and (c) electronic banding associated with both the LED pulse-width-modulation and the rolling shutter or readout speed (Panel B).  
+The smartphone camera captures the diffuse reflectance standard as a RAW image file.  The 'Curve Analysis.ipynb' in this repository then plots the digital number (z-axis) as a function of pixel location (x and y axis) and produces the plots shown below. The first set of graphs (labeled A and B) is of a single image. 
+
 <br><br>
 <p align="center" width="100%">
     <img width="60%" src="https://github.com/pHastCam/IS-Uniformity-Test/blob/main/uniformity.png"> 
 </p>
+
+From here we see that there are three types of non-uniformities: (a) a gross curvature pointed to the limited lighting uniformity (Panel A), (b) a high frequency feature associated with camera noise (variable) and target texture (fixed) (also Panel A), and (c) electronic banding associated with both the LED pulse-width-modulation and the rolling shutter or readout speed (Panel B) in accordance with the following equation:
+
+<br>
+<p align="center">
+  <img src="https://latex.codecogs.com/svg.latex?%5Cnormalsize%20Error%3Df(curvature%2Cbanding%2CHF%20noise)"
+       alt="Error = f(curvature, banding, HF noise)">
+</p>
+
+
 <br>
 We can reduce both the banding and camera-generated high-frequency noise by stacking multiple images.  The same program stacks multiple images (in this case, 5) and replots the digital number as a function of pixel location (see Panels C and D).  
 <br><br>
@@ -45,67 +56,15 @@ low-spatial-frequency 1-D DN profile.
     <img width="60%" src="https://github.com/pHastCam/IS-Uniformity-Test/blob/main/Maskand1DCurve.png"> 
 </p>
 <br>
+Curvature.py is a function that maps this analysis over to a 2-D flat-field image.  For the five small squares shown in the above mask, the calculated curvature values are presented in the table below. The curvature metric shows a consistent geometric dependence across the field of view: it is smallest in the central window (2.33 DN, 0.74% of mean) and larger in all four peripheral windows (≈3.3–4.4 DN, ≈1.05–1.39% of mean). This repeatable, smoothly varying spatial pattern is consistent with a low-spatial-frequency illumination/optical roll-off (a fixed bias field within a measurement session), rather than a stochastic term that would vary irregularly with location or average down with stacking.
+<br><br>
+<p align="center" width="100%">
+    <img width="80%" src="https://github.com/pHastCam/IS-Uniformity-Test/blob/main/table_curvature.png"> 
+</p>
+<br>
 
-<table style="margin-left: auto; margin-right: auto;">
-  <thead>
-    <tr>
-      <th>Window</th>
-      <th>Centroid (cx, cy)</th>
-      <th>Patch top-left (x0, y0)</th>
-      <th>Curvature span (p95–p5)</th>
-      <th>% of mean</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td>center</td>
-      <td>(200, 200)</td>
-      <td>(185, 185)</td>
-      <td>2.33 DN</td>
-      <td>0.74%</td>
-    </tr>
-    <tr>
-      <td>right_lower</td>
-      <td>(300, 100)</td>
-      <td>(285, 85)</td>
-      <td>4.32 DN</td>
-      <td>1.38%</td>
-    </tr>
-    <tr>
-      <td>right_upper</td>
-      <td>(300, 300)</td>
-      <td>(285, 285)</td>
-      <td>4.26 DN</td>
-      <td>1.36%</td>
-    </tr>
-    <tr>
-      <td>left_lower</td>
-      <td>(100, 100)</td>
-      <td>(85, 85)</td>
-      <td>4.38 DN</td>
-      <td>1.39%</td>
-    </tr>
-    <tr>
-      <td>left_upper</td>
-      <td>(100, 300)</td>
-      <td>(85, 285)</td>
-      <td>3.30 DN</td>
-      <td>1.05%</td>
-    </tr>
-  </tbody>
-  <caption>
-    2D quadratic curvature metric on 30×30 windows (centroids inset by 100 px; curvature = p95–p5 of fitted surface).
-  </caption>
-</table>
+## Banding
 
-
-| Window       | Centroid (cx, cy) | Patch (x0, y0) | Curvature span | % of mean |
-|--------------|------------------:|---------------:|---------------:|----------:|
-| center       | (200, 200)        | (185, 185)     | 2.33 DN        | 0.74%     |
-| right_lower  | (300, 100)        | (285, 85)      | 4.32 DN        | 1.38%     |
-| right_upper  | (300, 300)        | (285, 285)     | 4.26 DN        | 1.36%     |
-| left_lower   | (100, 100)        | (85, 85)       | 4.38 DN        | 1.39%     |
-| left_upper   | (100, 300)        | (85, 285)      | 3.30 DN        | 1.05%     |
 
 ## High Frequency Noise - Teasing out Deterministic vs. Stochastic Noise
 The high-frequency artifacts have two major components: one from surface texture, the other from camera noise. The surface texture is fixed or deterministic, hence stacking multiple images will not reduce this component.  The camera noise has two subcomponents: one from shot noise and the other from readout noise.  Although these two subcomponents stem from different events, both are variable and stochastic, and may be reduced by stacking by the inverse of the square root of the sample size (<img src="https://latex.codecogs.com/svg.latex?\normalsize\sqrt{N}" alt="sqrt(N)"/>).
