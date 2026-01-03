@@ -98,6 +98,15 @@ low-spatial-frequency 1-D DN profile.
   </caption>
 </table>
 
+
+| Window       | Centroid (cx, cy) | Patch (x0, y0) | Curvature span | % of mean |
+|--------------|------------------:|---------------:|---------------:|----------:|
+| center       | (200, 200)        | (185, 185)     | 2.33 DN        | 0.74%     |
+| right_lower  | (300, 100)        | (285, 85)      | 4.32 DN        | 1.38%     |
+| right_upper  | (300, 300)        | (285, 285)     | 4.26 DN        | 1.36%     |
+| left_lower   | (100, 100)        | (85, 85)       | 4.38 DN        | 1.39%     |
+| left_upper   | (100, 300)        | (85, 285)      | 3.30 DN        | 1.05%     |
+
 ## High Frequency Noise - Teasing out Deterministic vs. Stochastic Noise
 The high-frequency artifacts have two major components: one from surface texture, the other from camera noise. The surface texture is fixed or deterministic, hence stacking multiple images will not reduce this component.  The camera noise has two subcomponents: one from shot noise and the other from readout noise.  Although these two subcomponents stem from different events, both are variable and stochastic, and may be reduced by stacking by the inverse of the square root of the sample size (<img src="https://latex.codecogs.com/svg.latex?\normalsize\sqrt{N}" alt="sqrt(N)"/>).
 
