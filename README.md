@@ -32,29 +32,7 @@ Quantifying curvature is best explained using a 1D profile of the stack images. 
        alt="Curvature DN span"/>
 </p>
 <br><br>
-Here, 
-𝐶
-C denotes the error associated with curvature; 
-𝑝
-5
-p
-5
-	​
-
- and 
-𝑝
-95
-p
-95
-	​
-
- are the 5th and 95th DN percentiles computed over the analysis window; and 
-𝐼
-(
-𝑥
-)
-I(x) is the smoothed, low-spatial-frequency 1-D DN profile.
-
+Here, C denotes the error associated with curvature; p₅ and p₉₅ are the 5th and 95th DN percentiles computed over the analysis window; and I(x) is the smoothed, low-spatial-frequency 1-D DN profile.
 
 
 <br><br>
