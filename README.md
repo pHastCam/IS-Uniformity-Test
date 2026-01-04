@@ -70,7 +70,7 @@ As shown in the flat-field graph above for a single frame, banding is directiona
 
 <br>
 <p align="center" width="100%">
-    <img src="https://latex.codecogs.com/svg.latex?\normalsize\sigma_{\mathrm{total}}^{2}=\sigma_{\mathrm{high frequency}}^{2}-\sigma_{\mathrm{mid frequency}}^{2}" alt="sigma5 actual squared"/> 
+    <img src="https://latex.codecogs.com/svg.latex?\normalsize\sigma_{\mathrm{total}}^{2}=\sigma_{\mathrm{high\ frequency}}^{2}-\sigma_{\mathrm{mid\ frequency}}^{2}" alt="sigma5 actual squared"/> 
 </p> 
 <br>
 <p align="center" width="100%">
