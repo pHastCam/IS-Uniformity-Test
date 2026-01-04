@@ -64,6 +64,84 @@ Curvature.py is a function that maps this analysis over to a 2-D flat-field imag
 <br>
 
 ## Banding
+As shown in the flat-field graph above for a single frame, banding is directional. The file Banding.ipynb calculates the banding contribution to error.  It does so by prepping the data in the following sequence: (1) flatten the image (remove the curvature using the analysis info from Curvature.ipynb),(2) generate an average column profile (not by row, but by column).  We will use two different methods to calculate banding error from this one-dimensional data set. In both methods, the banding contribution, which lies in the mid‑frequency range, and the non‑banding contribution, which lies in the high‑frequency range, are treated as statistically independent due to their separation in spatial frequency and distinct physical origins. The methods calculate each of these components using different assumptions.
+
+### Method 1
+Since the noise bands act independently, the RMS contributions combine statistically, giving a total variance equal to the sum of their squared RMS values.
+<br><br>
+<p align="center" width="100%">
+    <img src="https://latex.codecogs.com/svg.latex?\normalsize\sigma_{\mathrm{total}}^{2}=\sigma_{\mathrm{high%20frequency}}^{2}+\sigma_{\mathrm{mid%20frequency}}^{2}" alt="sigma5 actual squared"/>
+</p> 
+<br>
+From there, the mid-frequency term is isolated.
+<br><br>
+<p align="center" width="100%">
+    <img src="https://latex.codecogs.com/svg.latex?\normalsize\sigma_{\mathrm{mid%20frequency}}^{2}=\sigma_{\mathrm{total}}^{2}-\sigma_{\mathrm{high%20frequency}}^{2}" alt="sigma5 actual squared"/>
+</p> 
+<br>
+The total squared-rms term is computed from the 1-dimensional profile of the stacked image after curvature removal.  The high-frequency squared-rms term is calculated from a 1-dimensional profile of a moving window segment from each of the non-stacked flat-field data. The moving window isolates a 100-pixel region outside the banding artifact, providing an empirical estimate of the high-frequency noise floor. The flat-field graphs, profiles, and moving window segments are shown in the figure below.
+<br>
+<p align="center" width="100%">
+    <img width="80%" src="https://github.com/pHastCam/IS-Uniformity-Test/blob/main/bandingbymovingwindow.png"> 
+</p>
+<br>
+
+### Method 2
+For Method 2, the high-frequency noise term was computed from the RMS of a detrended column-average profile derived from a single flat-field frame, rather than from windowed band-free regions.
+
+### Results
+
+<table style="border-collapse: collapse; width: 100%; font-family: Arial, sans-serif; font-size: 14px;">
+  <thead>
+    <tr>
+      <th style="border: 1px solid #ccc; padding: 8px; text-align: left;">Quantity</th>
+      <th style="border: 1px solid #ccc; padding: 8px; text-align: left;">Description</th>
+      <th style="border: 1px solid #ccc; padding: 8px; text-align: right;">RMS (DN)</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="border: 1px solid #ccc; padding: 8px;">Total residual RMS</td>
+      <td style="border: 1px solid #ccc; padding: 8px;">Stacked, curvature-removed column profile</td>
+      <td style="border: 1px solid #ccc; padding: 8px; text-align: right;">0.6281</td>
+    </tr>
+    <tr>
+      <td style="border: 1px solid #ccc; padding: 8px;">HF noise (quiet window, frame 1)</td>
+      <td style="border: 1px solid #ccc; padding: 8px;">Detrended band-free window</td>
+      <td style="border: 1px solid #ccc; padding: 8px; text-align: right;">0.4928</td>
+    </tr>
+    <tr>
+      <td style="border: 1px solid #ccc; padding: 8px;">HF noise (quiet window, frame 2)</td>
+      <td style="border: 1px solid #ccc; padding: 8px;">Detrended band-free window</td>
+      <td style="border: 1px solid #ccc; padding: 8px; text-align: right;">0.4322</td>
+    </tr>
+    <tr>
+      <td style="border: 1px solid #ccc; padding: 8px;">HF noise (quiet window, frame 3)</td>
+      <td style="border: 1px solid #ccc; padding: 8px;">Detrended band-free window</td>
+      <td style="border: 1px solid #ccc; padding: 8px; text-align: right;">0.5271</td>
+    </tr>
+    <tr>
+      <td style="border: 1px solid #ccc; padding: 8px;">HF noise (quiet window, frame 4)</td>
+      <td style="border: 1px solid #ccc; padding: 8px;">Detrended band-free window</td>
+      <td style="border: 1px solid #ccc; padding: 8px; text-align: right;">0.4781</td>
+    </tr>
+    <tr>
+      <td style="border: 1px solid #ccc; padding: 8px;">HF noise (quiet window, frame 5)</td>
+      <td style="border: 1px solid #ccc; padding: 8px;">Detrended band-free window</td>
+      <td style="border: 1px solid #ccc; padding: 8px; text-align: right;">0.5011</td>
+    </tr>
+    <tr>
+      <td style="border: 1px solid #ccc; padding: 8px;"><strong>HF noise (mean noise floor)</strong></td>
+      <td style="border: 1px solid #ccc; padding: 8px;">Mean RMS across single frames</td>
+      <td style="border: 1px solid #ccc; padding: 8px; text-align: right;"><strong>0.4862</strong></td>
+    </tr>
+    <tr>
+      <td style="border: 1px solid #ccc; padding: 8px;"><strong>Banding RMS (quadrature)</strong></td>
+      <td style="border: 1px solid #ccc; padding: 8px;">&radic;(&sigma;<sub>total</sub><sup>2</sup> &minus; &sigma;<sub>HF</sub><sup>2</sup>)</td>
+      <td style="border: 1px solid #ccc; padding: 8px; text-align: right;"><strong>0.3976</strong></td>
+    </tr>
+  </tbody>
+</table>
 
 
 ## High Frequency Noise - Teasing out Deterministic vs. Stochastic Noise
