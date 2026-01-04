@@ -86,6 +86,63 @@ The total squared-rms term is computed from the 1-dimensional profile of the sta
 </p>
 <br>
 
+### Method 2
+For Method 2, the high-frequency noise term was computed from the RMS of a detrended column-average profile derived from a single flat-field frame, rather than from windowed band-free regions.
+
+### Results
+
+<table style="border-collapse: collapse; width: 100%; font-family: Arial, sans-serif; font-size: 14px;">
+  <thead>
+    <tr>
+      <th style="border: 1px solid #ccc; padding: 8px; text-align: left;">Quantity</th>
+      <th style="border: 1px solid #ccc; padding: 8px; text-align: left;">Description</th>
+      <th style="border: 1px solid #ccc; padding: 8px; text-align: right;">RMS (DN)</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="border: 1px solid #ccc; padding: 8px;">Total residual RMS</td>
+      <td style="border: 1px solid #ccc; padding: 8px;">Stacked, curvature-removed column profile</td>
+      <td style="border: 1px solid #ccc; padding: 8px; text-align: right;">0.6281</td>
+    </tr>
+    <tr>
+      <td style="border: 1px solid #ccc; padding: 8px;">HF noise (quiet window, frame 1)</td>
+      <td style="border: 1px solid #ccc; padding: 8px;">Detrended band-free window</td>
+      <td style="border: 1px solid #ccc; padding: 8px; text-align: right;">0.4928</td>
+    </tr>
+    <tr>
+      <td style="border: 1px solid #ccc; padding: 8px;">HF noise (quiet window, frame 2)</td>
+      <td style="border: 1px solid #ccc; padding: 8px;">Detrended band-free window</td>
+      <td style="border: 1px solid #ccc; padding: 8px; text-align: right;">0.4322</td>
+    </tr>
+    <tr>
+      <td style="border: 1px solid #ccc; padding: 8px;">HF noise (quiet window, frame 3)</td>
+      <td style="border: 1px solid #ccc; padding: 8px;">Detrended band-free window</td>
+      <td style="border: 1px solid #ccc; padding: 8px; text-align: right;">0.5271</td>
+    </tr>
+    <tr>
+      <td style="border: 1px solid #ccc; padding: 8px;">HF noise (quiet window, frame 4)</td>
+      <td style="border: 1px solid #ccc; padding: 8px;">Detrended band-free window</td>
+      <td style="border: 1px solid #ccc; padding: 8px; text-align: right;">0.4781</td>
+    </tr>
+    <tr>
+      <td style="border: 1px solid #ccc; padding: 8px;">HF noise (quiet window, frame 5)</td>
+      <td style="border: 1px solid #ccc; padding: 8px;">Detrended band-free window</td>
+      <td style="border: 1px solid #ccc; padding: 8px; text-align: right;">0.5011</td>
+    </tr>
+    <tr>
+      <td style="border: 1px solid #ccc; padding: 8px;"><strong>HF noise (mean noise floor)</strong></td>
+      <td style="border: 1px solid #ccc; padding: 8px;">Mean RMS across single frames</td>
+      <td style="border: 1px solid #ccc; padding: 8px; text-align: right;"><strong>0.4862</strong></td>
+    </tr>
+    <tr>
+      <td style="border: 1px solid #ccc; padding: 8px;"><strong>Banding RMS (quadrature)</strong></td>
+      <td style="border: 1px solid #ccc; padding: 8px;">&radic;(&sigma;<sub>total</sub><sup>2</sup> &minus; &sigma;<sub>HF</sub><sup>2</sup>)</td>
+      <td style="border: 1px solid #ccc; padding: 8px; text-align: right;"><strong>0.3976</strong></td>
+    </tr>
+  </tbody>
+</table>
+
 
 ## High Frequency Noise - Teasing out Deterministic vs. Stochastic Noise
 The high-frequency artifacts have two major components: one from surface texture, the other from camera noise. The surface texture is fixed or deterministic, hence stacking multiple images will not reduce this component.  The camera noise has two subcomponents: one from shot noise and the other from readout noise.  Although these two subcomponents stem from different events, both are variable and stochastic, and may be reduced by stacking by the inverse of the square root of the sample size (<img src="https://latex.codecogs.com/svg.latex?\normalsize\sqrt{N}" alt="sqrt(N)"/>).
