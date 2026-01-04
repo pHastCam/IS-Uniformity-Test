@@ -68,13 +68,13 @@ As shown in the flat-field graph above for a single frame, banding is directiona
 
 ### Method 1
 Since the noise bands act independently, the RMS contributions combine statistically, giving a total variance equal to the sum of their squared RMS values.
-<br>
+<br><br>
 <p align="center" width="100%">
     <img src="https://latex.codecogs.com/svg.latex?\normalsize\sigma_{\mathrm{total}}^{2}=\sigma_{\mathrm{high%20frequency}}^{2}+\sigma_{\mathrm{mid%20frequency}}^{2}" alt="sigma5 actual squared"/>
 </p> 
 <br>
 From there, the mid-frequency term is isolated.
-<br>
+<br><br>
 <p align="center" width="100%">
     <img src="https://latex.codecogs.com/svg.latex?\normalsize\sigma_{\mathrm{mid%20frequency}}^{2}=\sigma_{\mathrm{total}}^{2}-\sigma_{\mathrm{high%20frequency}}^{2}" alt="sigma5 actual squared"/>
 </p> 
