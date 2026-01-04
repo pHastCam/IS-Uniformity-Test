@@ -91,6 +91,11 @@ For Method 2, the high-frequency noise term was computed from the RMS of a detre
 
 ### Results
 
+<br><br>
+<p align="center" width="100%">
+    <img width="80%" src="https://github.com/pHastCam/IS-Uniformity-Test/blob/main/banding_results.png"> 
+</p>
+<br>
 <table style="border-collapse: collapse; width: 100%; font-family: Arial, sans-serif; font-size: 14px;">
   <thead>
     <tr>
