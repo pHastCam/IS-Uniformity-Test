@@ -64,21 +64,22 @@ Curvature.py is a function that maps this analysis over to a 2-D flat-field imag
 <br>
 
 ## Banding
-As shown in the flat-field graph above for a single frame, banding is directional. The file Banding.ipynb calculates the banding contribution to error.  It does so by prepping the data in the following sequence: (1) flatten the image (remove the curvature using the analysis info from Curvature.ipynb),(2) generate an average column profile (not by row, but by column).  We will use two different methods to calculate banding error from this one-dimensional data set. In both methods, we assume that the banding contribution, which lies in the mid‑frequency range, and the non‑banding contribution, which lies in the high‑frequency range, act independently. The methods calculate each of these components using different assumptions.
+As shown in the flat-field graph above for a single frame, banding is directional. The file Banding.ipynb calculates the banding contribution to error.  It does so by prepping the data in the following sequence: (1) flatten the image (remove the curvature using the analysis info from Curvature.ipynb),(2) generate an average column profile (not by row, but by column).  We will use two different methods to calculate banding error from this one-dimensional data set. In both methods, the banding contribution, which lies in the mid‑frequency range, and the non‑banding contribution, which lies in the high‑frequency range, are treated as statistically independent due to their separation in spatial frequency and distinct physical origins. The methods calculate each of these components using different assumptions.
 
 ### Method 1
 Since the noise bands act independently, the RMS contributions combine statistically, giving a total variance equal to the sum of their squared RMS values.
 <br>
 <p align="center" width="100%">
-    <img src="https://latex.codecogs.com/svg.latex?\normalsize\sigma_{\mathrm{total}}^{2}=\sigma_{\mathrm{high%20frequency}}^{2}-\sigma_{\mathrm{mid%20frequency}}^{2}" alt="sigma5 actual squared"/>
+    <img src="https://latex.codecogs.com/svg.latex?\normalsize\sigma_{\mathrm{total}}^{2}=\sigma_{\mathrm{high%20frequency}}^{2}+\sigma_{\mathrm{mid%20frequency}}^{2}" alt="sigma5 actual squared"/>
 </p> 
 <br>
 From there, the mid-frequency term is isolated.
-
-<br><br>
+<br>
 <p align="center" width="100%">
     <img src="https://latex.codecogs.com/svg.latex?\normalsize\sigma_{\mathrm{mid%20frequency}}^{2}=\sigma_{\mathrm{total}}^{2}-\sigma_{\mathrm{high%20frequency}}^{2}" alt="sigma5 actual squared"/>
 </p> 
+<br>
+The total squared-rms term is computed from the 1-dimensional profile of the stacked image after curvature removal.  The high-frequency squared-rms term is calculated from a 1-dimensional profile of a moving window segment from each of the non-stacked flat-field data. The moving window isolates a 100-pixel region outside the banding artifact, providing an empirical estimate of the high-frequency noise floor. The flat-field graphs, profiles, and moving window segments are shown in the figure below.
 <br>
 <p align="center" width="100%">
     <img width="80%" src="https://github.com/pHastCam/IS-Uniformity-Test/blob/main/bandingbymovingwindow.png"> 
