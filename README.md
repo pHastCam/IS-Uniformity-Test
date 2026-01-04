@@ -73,6 +73,12 @@ As shown in the flat-field graph above for a single frame, banding is directiona
     <img src="https://latex.codecogs.com/svg.latex?\normalsize\sigma_{\mathrm{total}}^{2}=\sigma_{\mathrm{high%20frequency}}^{2}-\sigma_{\mathrm{mid%20frequency}}^{2}" alt="sigma5 actual squared"/>
 </p> 
 <br>
+
+<br>
+<p align="center" width="100%">
+    <img src="https://latex.codecogs.com/svg.latex?\normalsize\sigma_{\mathrm{\mathrm{mid%20frequency}}}^{2}=\sigma_{total}}^{2}-\sigma_{\mathrm{high%20frequency}}^{2}" alt="sigma5 actual squared"/>
+</p> 
+<br>
 <p align="center" width="100%">
     <img width="80%" src="https://github.com/pHastCam/IS-Uniformity-Test/blob/main/bandingbymovingwindow.png"> 
 </p>
