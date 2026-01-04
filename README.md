@@ -64,7 +64,7 @@ Curvature.py is a function that maps this analysis over to a 2-D flat-field imag
 <br>
 
 ## Banding
-As shown in the flat-field graph above for a single frame, banding is directional. To calculate the banding contribution to error, we first flatten the image (remove the curvature using the analysis info from Curvature.ipynb) and then generate an average column profile (not by row, but by column).  We will use two different methods to calculate banding error from this one-dimensional data set. In both methods, we assume that the banding contribution, which lies in the mid‑frequency range, and the non‑banding contribution, which lies in the high‑frequency range, act independently. The methods calculate each of these components using different assumptions.
+As shown in the flat-field graph above for a single frame, banding is directional. The file Banding.ipynb calculates the banding contribution to error.  It does so by prepping the data in the following sequence: (1) flatten the image (remove the curvature using the analysis info from Curvature.ipynb),(2) generate an average column profile (not by row, but by column).  We will use two different methods to calculate banding error from this one-dimensional data set. In both methods, we assume that the banding contribution, which lies in the mid‑frequency range, and the non‑banding contribution, which lies in the high‑frequency range, act independently. The methods calculate each of these components using different assumptions.
 
 ### Method 1
 Since the noise bands act independently, the RMS contributions combine statistically, giving a total variance equal to the sum of their squared RMS values.
