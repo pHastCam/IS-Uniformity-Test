@@ -237,7 +237,7 @@ The table summarizes the resulting noise estimates at both the pixel scale and t
   </tbody>
 </table>
 
-Pixel-scale HF noise decreases only modestly from N=1 to N=5 (8.43→7.27 DN), far less than the 
+Pixel-scale HF noise decreases only modestly from N=1 to N=5 (8.43→7.27 DN), far less than the 1/<img src="https://latex.codecogs.com/svg.latex?\normalsize\sqrt{N}" alt="sqrt(N)"/>
 1
 /
 𝑁
