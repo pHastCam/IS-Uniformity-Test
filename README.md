@@ -166,13 +166,75 @@ The table below shows the predicted banding errors using both methods. While a m
 </table>
 
 
+## High Frequency Noise
+
+<table>
+  <thead>
+    <tr>
+      <th>Category</th>
+      <th>Metric</th>
+      <th>N (frames)</th>
+      <th>Value [DN]</th>
+      <th>Interpretation</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Pixel-scale residuals</td>
+      <td>HF noise (robust σ)</td>
+      <td>1</td>
+      <td>8.433</td>
+      <td>Single-frame pixel-scale residual scatter (detrended + debanded)</td>
+    </tr>
+    <tr>
+      <td>Pixel-scale residuals</td>
+      <td>HF noise (robust σ)</td>
+      <td>5</td>
+      <td>7.267</td>
+      <td>5-frame stacked pixel-scale residual scatter (detrended + debanded)</td>
+    </tr>
+    <tr>
+      <td>Pixel-scale residuals</td>
+      <td>HF noise (RMS, centered)</td>
+      <td>5</td>
+      <td>7.258</td>
+      <td>RMS computed about the mean; agrees with robust σ</td>
+    </tr>
+    <tr>
+      <td>Pixel-scale residuals</td>
+      <td>Purely stochastic prediction (σ₁/√N)</td>
+      <td>5</td>
+      <td>3.771</td>
+      <td>Expected HF noise at N=5 if residuals were purely stochastic</td>
+    </tr>
+    <tr>
+      <td>Reported DN (30×30 masked mean)</td>
+      <td>Noise of masked DN (std)</td>
+      <td>across 5 frames</td>
+      <td>0.990</td>
+      <td>Frame-to-frame repeatability of the reported DN</td>
+    </tr>
+    <tr>
+      <td>Reported DN (30×30 masked mean)</td>
+      <td>Noise of masked DN (MAD→σ)</td>
+      <td>across 5 frames</td>
+      <td>1.117</td>
+      <td>Robust estimate of reported DN uncertainty</td>
+    </tr>
+    <tr>
+      <td>Reported DN (30×30 masked mean)</td>
+      <td>Mean within-frame spatial std</td>
+      <td>per frame</td>
+      <td>1.916</td>
+      <td>Spatial (texture/placement) variability across the five 30×30 windows</td>
+    </tr>
+  </tbody>
+</table>
 
 
 
 
-
-
-## High Frequency Noise - Teasing out Deterministic vs. Stochastic Noise
+### Teasing out Deterministic vs. Stochastic Noise
 The high-frequency artifacts have two major components: one from surface texture, the other from camera noise. The surface texture is fixed or deterministic, hence stacking multiple images will not reduce this component.  The camera noise has two subcomponents: one from shot noise and the other from readout noise.  Although these two subcomponents stem from different events, both are variable and stochastic, and may be reduced by stacking by the inverse of the square root of the sample size (<img src="https://latex.codecogs.com/svg.latex?\normalsize\sqrt{N}" alt="sqrt(N)"/>).
 
 The variance of the high-frequency artifacts may be modeled as:
