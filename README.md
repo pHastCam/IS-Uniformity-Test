@@ -169,7 +169,10 @@ The table below shows the predicted banding errors using both methods. While a m
 ## High Frequency Noise
 To isolate the high-frequency (HF) noise contribution of the imaging system, images were first processed to remove deterministic spatial structure (i.e., low-frequency curvature). Residual horizontal banding was then estimated as a robust per-row offset across frames and removed. These preprocessing steps (illustrated in the flat-field graphs below) suppress spatially coherent bias terms, ensuring that the remaining residuals primarily reflect pixel-scale variability.
 
-INSERT FIGURE: Flat-field and debanding results
+<br><br>
+<p align="center" width="100%">
+    <img width="60%" src="https://github.com/pHastCam/IS-Uniformity-Test/blob/main/uncurved_stacked.png"> 
+</p>
 
 The table summarizes the resulting noise estimates at both the pixel scale and the measurement scale. Pixel-scale HF noise is reported using both a robust metric (which reflects typical variation while minimizing the influence of outliers) and a conventional RMS calculation (which measures average variation about the mean), together with values obtained after frame stacking and the corresponding purely stochastic expectation. The table also reports the noise associated with the masked 30×30 mean (see the above figure showing the mask geometry), including frame-to-frame variability and within-frame spatial variability across the mask windows, establishing the quantitative basis for the interpretation that follows.
 <table>
