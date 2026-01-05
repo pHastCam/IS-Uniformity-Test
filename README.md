@@ -87,10 +87,10 @@ The total squared-rms term is computed from the 1-dimensional profile of the sta
 <br>
 
 ### Method 2
-For Method 2, the high-frequency noise term was computed from the RMS of a detrended column-average profile derived from a single flat-field frame, rather than from windowed band-free regions. These RMS values are then averaged
+For Method 2, the high-frequency noise term was computed from the RMS of a detrended column-average profile derived from a single flat-field frame, rather than from windowed band-free regions. These RMS values are then averaged.
 
 ### Results
-The table below shows the predicted banding errors using both methods.
+The table below shows the predicted banding errors using both methods. While a moving-window variance decomposition indicates a banding contribution of approximately 0.40 DN RMS, the stacked-profile residual RMS of 0.63 DN is retained as a conservative estimate of banding-related error.
 <br><br>
 
 <table style="border-collapse:collapse;width:100%;font-family:Arial,sans-serif;font-size:12px;">
