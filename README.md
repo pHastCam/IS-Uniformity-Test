@@ -168,7 +168,6 @@ The table below shows the predicted banding errors using both methods. While a m
 
 ## High Frequency Noise
 To isolate the high-frequency (HF) noise contribution of the imaging system, images were first processed to remove deterministic spatial structure (i.e., low-frequency curvature). Residual horizontal banding was then estimated as a robust per-row offset across frames and removed. These preprocessing steps (illustrated in the flat-field graphs below) suppress spatially coherent bias terms, ensuring that the remaining residuals primarily reflect pixel-scale variability.
-
 <br><br>
 <p align="center" width="100%">
     <img width="60%" src="https://github.com/pHastCam/IS-Uniformity-Test/blob/main/uncurved_stacked.png"> 
