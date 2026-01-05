@@ -94,13 +94,6 @@ The table below shows the predicted banding errors using both methods.
 <br><br>
 
 <table style="border-collapse:collapse;width:100%;font-family:Arial,sans-serif;font-size:12px;">
-  <colgroup>
-    <col style="width:18%;">
-    <col style="width:18%;">
-    <col style="width:38%;">
-    <col style="width:10%;">
-    <col style="width:16%;">
-  </colgroup>
   <thead>
     <tr>
       <th style="border:1px solid #ccc;padding:8px;text-align:left;">Method</th>
@@ -114,38 +107,23 @@ The table below shows the predicted banding errors using both methods.
     <tr>
       <td style="border:1px solid #ccc;padding:8px;vertical-align:top;"><strong>Method 1a: Moving-Window Baseline (HF / Floor)</strong></td>
       <td style="border:1px solid #ccc;padding:8px;vertical-align:top;">Baseline row-correlated ripple floor</td>
-      <td style="border:1px solid #ccc;padding:8px;vertical-align:top;">
-        For each frame, identify a <strong>100-row moving window</strong> with minimum local detrended RMS ripple; compute RMS within that window and average across frames.
-      </td>
+      <td style="border:1px solid #ccc;padding:8px;vertical-align:top;">For each frame, identify a <strong>100-row moving window</strong> with minimum local detrended RMS ripple; compute RMS within that window and average across frames.</td>
       <td style="border:1px solid #ccc;padding:8px;vertical-align:top;white-space:nowrap;font-size:11px;"><strong>0.486 DN</strong></td>
-      <td style="border:1px solid #ccc;padding:8px;vertical-align:top;">
-        Estimates the <strong>baseline row ripple</strong> that persists even when banding is locally minimized. Not pure shot noise; used as the HF / baseline term.
-      </td>
+      <td style="border:1px solid #ccc;padding:8px;vertical-align:top;">Estimates the <strong>baseline row ripple</strong> that persists even when banding is locally minimized. Not pure shot noise; used as the HF / baseline term.</td>
     </tr>
-
     <tr>
       <td style="border:1px solid #ccc;padding:8px;vertical-align:top;"><strong>Method 1b: Banding via Variance Decomposition (MF)</strong></td>
       <td style="border:1px solid #ccc;padding:8px;vertical-align:top;">Banding (mid-frequency) contribution beyond baseline</td>
-      <td style="border:1px solid #ccc;padding:8px;vertical-align:top;">
-        Compute RMS of the <strong>detrended stacked row profile</strong> (0.628 DN), then subtract Method 1a in quadrature:
-        sqrt( sigma_total^2 - sigma_baseline^2 ).
-      </td>
+      <td style="border:1px solid #ccc;padding:8px;vertical-align:top;">Compute RMS of the <strong>detrended stacked row profile</strong> (0.628 DN), then subtract Method 1a in quadrature: sqrt(sigma_total^2 - sigma_baseline^2).</td>
       <td style="border:1px solid #ccc;padding:8px;vertical-align:top;white-space:nowrap;font-size:11px;"><strong>0.398 DN</strong></td>
-      <td style="border:1px solid #ccc;padding:8px;vertical-align:top;">
-        Estimated <strong>banding-only RMS</strong>, assuming approximate independence between baseline ripple and banding. Diagnostic, assumption-dependent.
-      </td>
+      <td style="border:1px solid #ccc;padding:8px;vertical-align:top;">Estimated <strong>banding-only RMS</strong>, assuming approximate independence between baseline ripple and banding. Diagnostic, assumption-dependent.</td>
     </tr>
-
     <tr>
       <td style="border:1px solid #ccc;padding:8px;vertical-align:top;"><strong>Method 2: Stacked Profile RMS (Conservative)</strong></td>
       <td style="border:1px solid #ccc;padding:8px;vertical-align:top;">Total residual row-structured error after stacking</td>
-      <td style="border:1px solid #ccc;padding:8px;vertical-align:top;">
-        RMS of the <strong>detrended stacked row profile</strong> (mean across columns → average across frames → mean removed → RMS).
-      </td>
+      <td style="border:1px solid #ccc;padding:8px;vertical-align:top;">RMS of the <strong>detrended stacked row profile</strong> (mean across columns → average across frames → mean removed → RMS).</td>
       <td style="border:1px solid #ccc;padding:8px;vertical-align:top;white-space:nowrap;font-size:11px;"><strong>0.628 DN</strong></td>
-      <td style="border:1px solid #ccc;padding:8px;vertical-align:top;">
-        Conservative, assumption-light bound. Includes <strong>all residual row-correlated structure</strong> (baseline ripple + banding overlap). Appropriate for engineering error budgets.
-      </td>
+      <td style="border:1px solid #ccc;padding:8px;vertical-align:top;">Conservative, assumption-light bound. Includes <strong>all residual row-correlated structure</strong> (baseline ripple + banding overlap). Appropriate for engineering error budgets.</td>
     </tr>
   </tbody>
 </table>
