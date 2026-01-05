@@ -97,7 +97,7 @@ The table below shows the predicted banding errors using both methods.
 </p>
 <br>
 
-<table style="border-collapse: collapse; width: 100%; font-family: Arial, sans-serif; font-size: 14px;">
+<table style="border-collapse: collapse; width: 100%; font-family: Arial, sans-serif; font-size: 12px;">
   <thead>
     <tr>
       <th style="border: 1px solid #ccc; padding: 8px; text-align: left;">Method</th>
