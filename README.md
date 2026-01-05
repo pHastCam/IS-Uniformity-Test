@@ -92,6 +92,7 @@ For Method 2, the high-frequency noise term was computed from the RMS of a detre
 ### Results
 The table below shows the predicted banding errors using both methods.
 <br><br>
+
 <table style="border-collapse: collapse; width: 100%; font-family: Arial, sans-serif; font-size: 12px;">
   <thead>
     <tr>
