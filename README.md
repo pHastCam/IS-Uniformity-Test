@@ -237,15 +237,7 @@ The table summarizes the resulting noise estimates at both the pixel scale and t
   </tbody>
 </table>
 
-Pixel-scale HF noise decreases only modestly from N=1 to N=5 (8.43→7.27 DN), far less than the 1/<img src="https://latex.codecogs.com/svg.latex?\normalsize\sqrt{N}" alt="sqrt(N)"/>
-1
-/
-𝑁
-1/
-N
-	​
-
- reduction expected for purely stochastic noise (3.77 DN), indicating that residuals are dominated by fixed or quasi-fixed spatial texture rather than temporal noise. Because this dominant component is spatially structured, averaging pixel intensities within the masked 30×30 windows is expected to—and does—produce a substantial reduction in the noise of the reported measurement.
+Pixel-scale HF noise decreases only modestly from N=1 to N=5 (8.43→7.27 DN), far less than the 1/<img src="https://latex.codecogs.com/svg.latex?\normalsize\sqrt{N}" alt="sqrt(N)"/> reduction expected for purely stochastic noise (3.77 DN), indicating that residuals are dominated by fixed or quasi-fixed spatial texture rather than temporal noise. Because this dominant component is spatially structured, averaging pixel intensities within the masked 30×30 windows is expected to—and does—produce a substantial reduction in the noise of the reported measurement.
 
 
 ### Teasing out Deterministic vs. Stochastic Noise
