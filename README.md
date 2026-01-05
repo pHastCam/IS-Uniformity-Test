@@ -87,64 +87,161 @@ The total squared-rms term is computed from the 1-dimensional profile of the sta
 <br>
 
 ### Method 2
-For Method 2, the high-frequency noise term was computed from the RMS of a detrended column-average profile derived from a single flat-field frame, rather than from windowed band-free regions.
+For Method 2, the high-frequency noise term was computed from the RMS of a detrended column-average profile derived from a single flat-field frame, rather than from windowed band-free regions. These RMS values are then averaged.
 
 ### Results
+The table below shows the predicted banding errors using both methods. While a moving-window variance decomposition indicates a banding contribution of approximately 0.40 DN RMS, the stacked-profile residual RMS of 0.63 DN is retained as a conservative estimate of banding-related error.
+<br><br>
 
-<table style="border-collapse: collapse; width: 100%; font-family: Arial, sans-serif; font-size: 14px;">
+<table style="border-collapse:collapse;width:100%;font-family:Arial,sans-serif;font-size:12px;">
   <thead>
     <tr>
-      <th style="border: 1px solid #ccc; padding: 8px; text-align: left;">Quantity</th>
-      <th style="border: 1px solid #ccc; padding: 8px; text-align: left;">Description</th>
-      <th style="border: 1px solid #ccc; padding: 8px; text-align: right;">RMS (DN)</th>
+      <th style="border:1px solid #ccc;padding:8px;text-align:left;">Method</th>
+      <th style="border:1px solid #ccc;padding:8px;text-align:left;">Quantity Estimated</th>
+      <th style="border:1px solid #ccc;padding:8px;text-align:left;">How It Is Computed</th>
+      <th style="border:1px solid #ccc;padding:8px;text-align:left;">DN RMS Result</th>
+      <th style="border:1px solid #ccc;padding:8px;text-align:left;">Interpretation / Role</th>
     </tr>
   </thead>
   <tbody>
     <tr>
-      <td style="border: 1px solid #ccc; padding: 8px;">Total residual RMS</td>
-      <td style="border: 1px solid #ccc; padding: 8px;">Stacked, curvature-removed column profile</td>
-      <td style="border: 1px solid #ccc; padding: 8px; text-align: right;">0.6281</td>
+      <td style="border:1px solid #ccc;padding:8px;vertical-align:top;">
+        <strong>Method 1a: Moving-Window Baseline (HF / Floor)</strong>
+      </td>
+      <td style="border:1px solid #ccc;padding:8px;vertical-align:top;">
+        Baseline row-correlated ripple floor
+      </td>
+      <td style="border:1px solid #ccc;padding:8px;vertical-align:top;">
+        For each frame, identify a <strong>100-row moving window</strong> with minimum local detrended RMS ripple; compute RMS within that window and average across frames.
+      </td>
+      <td style="border:1px solid #ccc;padding:8px;vertical-align:top;">
+        <span style="display:inline-block; white-space:nowrap; font-size:11px; font-weight:600;">
+          0.486&nbsp;DN
+        </span>
+      </td>
+      <td style="border:1px solid #ccc;padding:8px;vertical-align:top;">
+        Estimates the <strong>baseline row ripple</strong> that persists even when banding is locally minimized. Not pure shot noise; used as the HF / baseline term.
+      </td>
     </tr>
     <tr>
-      <td style="border: 1px solid #ccc; padding: 8px;">HF noise (quiet window, frame 1)</td>
-      <td style="border: 1px solid #ccc; padding: 8px;">Detrended band-free window</td>
-      <td style="border: 1px solid #ccc; padding: 8px; text-align: right;">0.4928</td>
+      <td style="border:1px solid #ccc;padding:8px;vertical-align:top;">
+        <strong>Method 1b: Banding via Variance Decomposition (MF)</strong>
+      </td>
+      <td style="border:1px solid #ccc;padding:8px;vertical-align:top;">
+        Banding (mid-frequency) contribution beyond baseline
+      </td>
+      <td style="border:1px solid #ccc;padding:8px;vertical-align:top;">
+        Compute RMS of the <strong>detrended stacked row profile</strong> (0.628 DN), then subtract Method 1a in quadrature:
+        sqrt(sigma_total^2 − sigma_baseline^2).
+      </td>
+      <td style="border:1px solid #ccc;padding:8px;vertical-align:top;">
+        <span style="display:inline-block; white-space:nowrap; font-size:11px; font-weight:600;">
+          0.398&nbsp;DN
+        </span>
+      </td>
+      <td style="border:1px solid #ccc;padding:8px;vertical-align:top;">
+        Estimated <strong>banding-only RMS</strong>, assuming approximate independence between baseline ripple and banding. Diagnostic, assumption-dependent.
+      </td>
     </tr>
     <tr>
-      <td style="border: 1px solid #ccc; padding: 8px;">HF noise (quiet window, frame 2)</td>
-      <td style="border: 1px solid #ccc; padding: 8px;">Detrended band-free window</td>
-      <td style="border: 1px solid #ccc; padding: 8px; text-align: right;">0.4322</td>
-    </tr>
-    <tr>
-      <td style="border: 1px solid #ccc; padding: 8px;">HF noise (quiet window, frame 3)</td>
-      <td style="border: 1px solid #ccc; padding: 8px;">Detrended band-free window</td>
-      <td style="border: 1px solid #ccc; padding: 8px; text-align: right;">0.5271</td>
-    </tr>
-    <tr>
-      <td style="border: 1px solid #ccc; padding: 8px;">HF noise (quiet window, frame 4)</td>
-      <td style="border: 1px solid #ccc; padding: 8px;">Detrended band-free window</td>
-      <td style="border: 1px solid #ccc; padding: 8px; text-align: right;">0.4781</td>
-    </tr>
-    <tr>
-      <td style="border: 1px solid #ccc; padding: 8px;">HF noise (quiet window, frame 5)</td>
-      <td style="border: 1px solid #ccc; padding: 8px;">Detrended band-free window</td>
-      <td style="border: 1px solid #ccc; padding: 8px; text-align: right;">0.5011</td>
-    </tr>
-    <tr>
-      <td style="border: 1px solid #ccc; padding: 8px;"><strong>HF noise (mean noise floor)</strong></td>
-      <td style="border: 1px solid #ccc; padding: 8px;">Mean RMS across single frames</td>
-      <td style="border: 1px solid #ccc; padding: 8px; text-align: right;"><strong>0.4862</strong></td>
-    </tr>
-    <tr>
-      <td style="border: 1px solid #ccc; padding: 8px;"><strong>Banding RMS (quadrature)</strong></td>
-      <td style="border: 1px solid #ccc; padding: 8px;">&radic;(&sigma;<sub>total</sub><sup>2</sup> &minus; &sigma;<sub>HF</sub><sup>2</sup>)</td>
-      <td style="border: 1px solid #ccc; padding: 8px; text-align: right;"><strong>0.3976</strong></td>
+      <td style="border:1px solid #ccc;padding:8px;vertical-align:top;">
+        <strong>Method 2: Stacked Profile RMS (Conservative)</strong>
+      </td>
+      <td style="border:1px solid #ccc;padding:8px;vertical-align:top;">
+        Total residual row-structured error after stacking
+      </td>
+      <td style="border:1px solid #ccc;padding:8px;vertical-align:top;">
+        RMS of the <strong>detrended stacked row profile</strong> (mean across columns → average across frames → mean removed → RMS).
+      </td>
+      <td style="border:1px solid #ccc;padding:8px;vertical-align:top;">
+        <span style="display:inline-block; white-space:nowrap; font-size:11px; font-weight:600;">
+          0.628&nbsp;DN
+        </span>
+      </td>
+      <td style="border:1px solid #ccc;padding:8px;vertical-align:top;">
+        Conservative, assumption-light bound. Includes <strong>all residual row-correlated structure</strong> (baseline ripple + banding overlap). Appropriate for engineering error budgets.
+      </td>
     </tr>
   </tbody>
 </table>
 
 
-## High Frequency Noise - Teasing out Deterministic vs. Stochastic Noise
+## High Frequency Noise
+To isolate the high-frequency (HF) noise contribution of the imaging system, images were first processed to remove deterministic spatial structure (i.e., low-frequency curvature). Residual horizontal banding was then estimated as a robust per-row offset across frames and removed. These preprocessing steps (illustrated in the flat-field graphs below) suppress spatially coherent bias terms, ensuring that the remaining residuals primarily reflect pixel-scale variability.
+<br><br>
+<p align="center" width="100%">
+    <img width="60%" src="https://github.com/pHastCam/IS-Uniformity-Test/blob/main/uncurved_stacked.png"> 
+</p>
+
+The table summarizes the resulting noise estimates at both the pixel scale and the measurement scale. Pixel-scale HF noise is reported using both a robust metric (which reflects typical variation while minimizing the influence of outliers) and a conventional RMS calculation (which measures average variation about the mean), together with values obtained after frame stacking and the corresponding purely stochastic expectation. The table also reports the noise associated with the masked 30×30 mean (see the above figure showing the mask geometry), including frame-to-frame variability and within-frame spatial variability across the mask windows, establishing the quantitative basis for the interpretation that follows.
+<table>
+  <thead>
+    <tr>
+      <th>Category</th>
+      <th>Metric</th>
+      <th>N (frames)</th>
+      <th>Value [DN]</th>
+      <th>Interpretation</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Pixel-scale residuals</td>
+      <td>HF noise (robust σ)</td>
+      <td>1</td>
+      <td>8.433</td>
+      <td>Single-frame pixel-scale residual scatter (detrended + debanded)</td>
+    </tr>
+    <tr>
+      <td>Pixel-scale residuals</td>
+      <td>HF noise (robust σ)</td>
+      <td>5</td>
+      <td>7.267</td>
+      <td>5-frame stacked pixel-scale residual scatter (detrended + debanded)</td>
+    </tr>
+    <tr>
+      <td>Pixel-scale residuals</td>
+      <td>HF noise (RMS, centered)</td>
+      <td>5</td>
+      <td>7.258</td>
+      <td>RMS computed about the mean; agrees with robust σ</td>
+    </tr>
+    <tr>
+      <td>Pixel-scale residuals</td>
+      <td>Purely stochastic prediction (σ₁/√N)</td>
+      <td>5</td>
+      <td>3.771</td>
+      <td>Expected HF noise at N=5 if residuals were purely stochastic</td>
+    </tr>
+    <tr>
+      <td>Reported DN (30×30 masked mean)</td>
+      <td>Noise of masked DN (std)</td>
+      <td>across 5 frames</td>
+      <td>0.990</td>
+      <td>Frame-to-frame repeatability of the reported DN</td>
+    </tr>
+    <tr>
+      <td>Reported DN (30×30 masked mean)</td>
+      <td>Noise of masked DN (MAD→σ)</td>
+      <td>across 5 frames</td>
+      <td>1.117</td>
+      <td>Robust estimate of reported DN uncertainty</td>
+    </tr>
+    <tr>
+      <td>Reported DN (30×30 masked mean)</td>
+      <td>Mean within-frame spatial std</td>
+      <td>per frame</td>
+      <td>1.916</td>
+      <td>Spatial (texture/placement) variability across the five 30×30 windows</td>
+    </tr>
+  </tbody>
+</table>
+
+Pixel-scale HF noise decreases only modestly from N=1 to N=5 (8.43→7.27 DN), far less than the 1/<img src="https://latex.codecogs.com/svg.latex?\sqrt{N}" alt="sqrt(N)" style="vertical-align: middle;"/>
+ reduction expected for purely stochastic noise (3.77 DN), indicating that residuals are dominated by fixed or quasi-fixed spatial texture rather than temporal noise. Because this dominant component is spatially structured, averaging pixel intensities within the masked 30×30 windows is expected to—and does—produce a substantial reduction in the noise of the reported measurement.
+
+
+### Teasing out Deterministic vs. Stochastic Noise
 The high-frequency artifacts have two major components: one from surface texture, the other from camera noise. The surface texture is fixed or deterministic, hence stacking multiple images will not reduce this component.  The camera noise has two subcomponents: one from shot noise and the other from readout noise.  Although these two subcomponents stem from different events, both are variable and stochastic, and may be reduced by stacking by the inverse of the square root of the sample size (<img src="https://latex.codecogs.com/svg.latex?\normalsize\sqrt{N}" alt="sqrt(N)"/>).
 
 The variance of the high-frequency artifacts may be modeled as:
