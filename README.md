@@ -123,7 +123,6 @@ The table below shows the predicted banding errors using both methods.
         Estimates the <strong>baseline row ripple</strong> that persists even when banding is locally minimized. Not pure shot noise; used as the HF / baseline term.
       </td>
     </tr>
-
     <tr>
       <td style="border:1px solid #ccc;padding:8px;vertical-align:top;">
         <strong>Method 1b: Banding via Variance Decomposition (MF)</strong>
@@ -144,7 +143,6 @@ The table below shows the predicted banding errors using both methods.
         Estimated <strong>banding-only RMS</strong>, assuming approximate independence between baseline ripple and banding. Diagnostic, assumption-dependent.
       </td>
     </tr>
-
     <tr>
       <td style="border:1px solid #ccc;padding:8px;vertical-align:top;">
         <strong>Method 2: Stacked Profile RMS (Conservative)</strong>
