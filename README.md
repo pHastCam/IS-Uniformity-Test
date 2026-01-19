@@ -174,6 +174,7 @@ To isolate the high-frequency (HF) noise contribution of the imaging system, ima
 </p>
 
 The table summarizes the resulting noise estimates at both the pixel scale and the measurement scale. Pixel-scale HF noise is reported using both a robust metric (which reflects typical variation while minimizing the influence of outliers) and a conventional RMS calculation (which measures average variation about the mean), together with values obtained after frame stacking and the corresponding purely stochastic expectation. The table also reports the noise associated with the masked 30×30 mean (see the above figure showing the mask geometry), including frame-to-frame variability and within-frame spatial variability across the mask windows, establishing the quantitative basis for the interpretation that follows.
+
 <table>
   <thead>
     <tr>
