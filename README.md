@@ -2,7 +2,7 @@
 This code analyzes the uniformity of our lighting setup. The three python files analyze the effectiveness of image stacking as well as the impact of banding and curvature of the camera. This data allowed us to explore some of the dominant causes of lighting error and prove that our design using smartphone cameras can provide accurate data for screening specifications. 
 
 ## Installation
-1. Clone the repository
+1. Clone the repository  
     git clone https://github.com/pHastCam/IS-Uniformity-Test.git  
     cd IS-Uniformity-Test  
 2. Create the conda environment from YAML file   
