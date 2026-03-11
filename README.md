@@ -3,13 +3,13 @@ This code analyzes the uniformity of our lighting setup. The three python files 
 
 ## Installation
 1. Clone the repository
-    git clone https://github.com/pHastCam/IS-Uniformity-Test.git
-    cd IS-Uniformity-Test
-2. Create the conda environment from YAML file
-    conda env create -f environment.yml
-3. Activate the environment
-    conda activate IS-Uniformity-Test
-4. Launch Jupyter Notebook
+    git clone https://github.com/pHastCam/IS-Uniformity-Test.git  
+    cd IS-Uniformity-Test  
+2. Create the conda environment from YAML file   
+    conda env create -f environment.yml  
+3. Activate the environment  
+    conda activate IS-Uniformity-Test  
+4. Launch Jupyter Notebook  
 
 ## Usage
 1. When the environment is active, launch Jupyter Notebook 
@@ -17,14 +17,14 @@ This code analyzes the uniformity of our lighting setup. The three python files 
 3. Note that several cells require changes to the local path of the files on the user's computer.
 
 ## Built with
-Python 3.9
-Numpy 1.21
-Pandas 1.3
-Matplotlib 3.5
-Pillow 9.3
-Rawpy 0.17.3
-Opencv 4.6
-Notebook 6.5.2
-Exiftool 0.5.5
+Python 3.9  
+Numpy 1.21  
+Pandas 1.3  
+Matplotlib 3.5  
+Pillow 9.3  
+Rawpy 0.17.3  
+Opencv 4.6  
+Notebook 6.5.2  
+Exiftool 0.5.5  
 
 
